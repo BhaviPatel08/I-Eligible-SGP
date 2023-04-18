@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Test</title>
+</head>
+<body>
+
+<select id="sel">
+    <option id="op1">
+        <label for="op1">Hello</label>
+    </option>
+    <option id="op2">
+        <label for="op2">World</label>
+    </option>
+</select>
+<br>
+<br>
+
+<div class="check-Class">
+<label for="n1">one</label>
+<input type="checkbox" id="n1" name="com">
+
+<label for="n2">two</label>
+<input type="checkbox" id="n2" name="com">
+
+<label for="n3">three</label>
+<input type="checkbox" id="n3" name="com">
+</div>
+
+<br>
+<br>
+<button type="button" onClick="refreshPage()">Close</button>
+
+</body>
+</html>
+
+
+
+<script>
+ 
+$(document).ready(function () { 
+
+     $('.check-Class').click(function () {
+        alert(document.getElementsByClassName("check-Class").values());
+     });
+ 
+});
+
+</script>

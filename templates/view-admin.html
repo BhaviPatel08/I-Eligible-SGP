@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/view-admin.css">
+    <!-- Log Out logo-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <!--Edit logo-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="/static/JS/adminJS.js"></script>
+
+    <!-- delete logo -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+
+        function scl_view_icon(id)
+            {
+                const arr = id.split("-");
+                id = arr[arr.length-1];
+                $(document).ready(function(){
+                    $('.scl-view-icon-list-div').hide();
+                    $('.after-cpy').hide();
+                    $('#scl-view-icon-list-id-'+id).toggle();
+                });
+            }
+
+        function clg_view_icon(id)
+        {
+            const arr = id.split("-");
+            id = arr[arr.length-1];
+            $(document).ready(function(){
+                $('.clg-view-icon-list-div').hide();
+                $('.after-cpy').hide();
+                $('#clg-view-icon-list-id-'+id).toggle();
+            });
+        }
+
+        function scl_delete_icon(id)
+        {
+            const array = id.split("-");
+            id = array[array.length-1];
+            $(document).ready(function(){
+                $('.scl-delete-alert-div').hide();
+                $('#scl-delete-alert-id-'+id).show();
+            });
+        }
+
+        function clg_delete_icon(id)
+        {
+            
+            const array = id.split("-");
+            id = array[array.length-1];
+            console.log(id)
+            $(document).ready(function(){
+                console.log('Function called')
+                $('.clg-delete-alert-div').hide();
+                $('#clg-delete-alert-id-'+id).show();
+            });
+        }
+
+        function scl_current_close()
+        {
+            $('.scl-view-icon-list-div').hide();
+        }
+
+        function clg_current_close()
+        {
+            $('.clg-view-icon-list-div').hide();
+        }
+
+        function scl_cancel(id)
+        {
+            $(document).ready(function(){
+                $('.scl-delete-alert-div').hide();
+            });
+        }
+
+        function clg_cancel(id)
+        {
+            $(document).ready(function(){
+                $('.clg-delete-alert-div').hide();
+            });
+        }
+
+        let aft_cpy = function () {
+	        $(document).ready(function(){
+                $('.after-cpy').hide();
+                $('.before-cpy').show();
+            });
+        };
+
+        function cpyTxt(str)
+        {
+            $(document).ready(function(){
+                $('.after-cpy').show();
+                $('.before-cpy').hide();
+            });
+            navigator.clipboard.writeText(str);
+            setTimeout(aft_cpy, 1500);
+        }
+
+        
+
+        $(document).ready(function(){
+
+                $('.for-college').hide();
+                $('.scl-view-icon-list-div').hide();
+                $('.scl-delete-alert-div').hide();
+
+                $('#college').click(function(){
+                     $('.for-school').hide();
+                     $('.for-college').show();
+                     $('.clg-view-icon-list-div').hide();
+                     $('.clg-delete-alert-div').hide();
+                });
+
+                $('#school').click(function() {
+                    $('.for-college').hide();
+                    $('.for-school').show();
+                    $('.scl-view-icon-list-div').hide();
+                });
+
+        });
+
+    </script>
+    
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <!-- <div class="side-bar">
+        <div class="sub-side">
+            <h2>Account</h2>
+        </div>
+        <div class="side-bar-menu">
+            <ul>
+                <li><a href="{% url 'addNew' %}">
+                        <span class="fa fa-plus"></span>
+                        <span>Add New</span>
+                    </a></li>
+                <li><a href="" class="active">
+                        <span class="fa fa-eye"></span>
+                        <span>View</span>
+                    </a></li>
+                <li><a href="">
+                        <span class='fa fa-edit'></span>
+                        <span>Edit</span>
+                    </a></li>
+                <li onclick="logout()"><a href="">
+                        <span class="fa fa-sign-out"></span>
+                        <span> Log out</span>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <h1> <span> &#9776; </span> Dashboard </h1>
+    </header>
+    <div class="hed-line"></div> -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btnf"></i>
+        <i class="fa fa-bars" id="cancelf"></i>
+    </label>
+    <div class="sidebar">
+        <header>Dashboard</header>
+        <ul>
+            <li><a href="{% url 'addNew' %}"><i class="fa fa-plus"></i>Add New</a></li>
+            <li><a href="#"><i class="fa fa-eye"></i>View</a></li>
+            <!-- <li><a href="#"><i class="fa fa-edit"></i>Edit</a></li> -->
+            <li onclick="logout()"><a href="#"><i class="fa fa-sign-out">Log out</i></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="an-all">
+            <div class="indivisual">
+
+                <button id="school" name="scl-op">School</button>
+                <button id="college" name="clg-op">College</button>
+
+                <div class="for-school">
+                <table border="0" id="mySchoolTable">
+                    <thead>
+                        <tr>
+                        <th>No.</th>
+                        <th>Scholarship Name</th>
+                        <th>View</th>
+                        <!-- <th>Edit</th> -->
+                        <th>Delete</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                {% for i in sName %}
+                <div class="print">
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>{{i.scholar_name}}</td>
+                        
+                        <td id="scl-view-icon-id-{{ forloop.counter }}" onclick="scl_view_icon(this.id)"> <span id="eye-icon" class="fa fa-eye"></span> </td>
+
+                        <!-- <td id="scl-edit-icon-id-{{ forloop.counter }}"><span class="edit-icon">&#x270e;</span></td> -->
+
+                        <td id="scl-delete-icon-id-{{ forloop.counter }}" onclick="scl_delete_icon(this.id)"><i class="material-icons">&#xe872;</i></td> 
+                    </tr>
+                </div> 
+            </tbody>
+            
+            <div class="scl-view-icon-list-div" id="scl-view-icon-list-id-{{forloop.counter}}">
+                
+                <div onclick="scl_current_close()" class="close-button" >&#x2715;</div>
+                <div class="scl-view-icon-list-div-inner">
+                <ul>
+                    <li>Scholarship Name: {{i.scholar_name}}</li>
+                    <div class="line-bot"></div>
+                    <div class="scl-view-icon-list-div-inner1">
+                    {% if i.std_1 == True %}
+                        <li class="list-odd list-com">Standard 1:  <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 1: <span>&#10060;</span></li>
+                    {% endif %}
+                    {% if i.std_2 == True %}
+                        <li class="list-even list-com std2">Standard 2:  <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-even list-com std2">Standard 2: <span>&#10060;</span></li>
+                    {% endif %}
+                   </div> <!-- div: scl-view-icon-list-div-inner1 over -->
+                   <div class="scl-view-icon-list-div-inner1">
+                    {% if i.std_3 == True %}
+                        <li class="list-odd list-com">Standard 3: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 3: <span>&#10060;</span></li>
+                    {% endif %}
+
+                    {% if i.std_4 == True %}
+                        <li class="list-even list-com">Standard 4: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-even list-com">Standard 4: <span>&#10060;</span></li>
+                    {% endif %}
+                    </div>
+                    <div class="scl-view-icon-list-div-inner1">
+                    {% if i.std_5 == True %}
+                        <li class="list-odd list-com">Standard 5: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 5: <span>&#10060;</span></li>
+                    {% endif %}
+
+                    {% if i.std_6 == True %}
+                        <li class="list-even list-com">Standard 6: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-even list-com">Standard 6: <span>&#10060;</span></li>
+                    {% endif %}
+                </div>
+                <div class="scl-view-icon-list-div-inner2">
+                    {% if i.std_7 == True %}
+                        <li class="list-odd list-com">Standard 7: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 7: <span>&#10060;</span></li>
+                    {% endif %}
+
+                    {% if i.std_8 == True %}
+                        <li class="list-even list-com">Standard 8: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-even list-com">Standard 8: <span>&#10060;</span> </li>
+                    {% endif %}
+                    </div>
+                    <div class="scl-view-icon-list-div-inner2">
+                    {% if i.std_9 == True %}
+                        <li class="list-odd list-com">Standard 9: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 9: <span>&#10060;</span></li>
+                    {% endif %}
+
+                    {% if i.std_10 == True %}
+                        <li class="list-even list-com">Standard 10: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-even list-com">Standard 10: <span>&#10060;</span></li>
+                    {% endif %}
+                  </div>
+                  <div class="scl-view-icon-list-div-inner2">
+                    {% if i.std_11 == True %}
+                        <li class="list-odd list-com">Standard 11: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com">Standard 11: <span>&#10060;</span></li>
+                    {% endif %}
+
+                    {% if i.std_12 == True %}
+                        <li class="list-odd list-com st12">Standard 12: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li class="list-odd list-com st12">Standard 12: <span>&#10060;</span></li>
+                    {% endif %}
+                </div><!-- div: scl-view-icon-list-div-inner2 over -->
+            </div>
+            <div class="scl-view-icon-list-div-inner">
+                    {% if i.scl_open_pr != 200 %}
+                    <li>Percentile required for OPEN catagory: {{i.scl_open_pr}}</li>
+                    <div class="line-bot"></div>
+                    {% endif %}
+
+
+                    {% if i.scl_ews_pr != 200 %}
+                    <li>Percentile required for EWS catagory: {{i.scl_ews_pr}}</li>
+                    <div class="line-bot"></div>
+                    {% endif %}
+
+                    {% if i.scl_sebc_pr != 200 %}
+                    <li>Percentile required for SEBC catagory: {{i.scl_sebc_pr}}</li>
+                    <div class="line-bot"></div>
+                    {% endif %}
+
+                    {% if i.scl_sc_st_pr != 200 %}
+                    <li>Percentile required for SC/ST catagory: {{i.scl_sc_st_pr}}</li>
+                    <div class="line-bot"></div>
+                    {% endif %}
+
+                    <li>Family Annual Income can't be more than {{i.scl_f_income}}</li>
+                    <div class="line-bot"></div>
+                    <div class="scl-gen">
+                    <div>
+                    {% if i.scl_gender_male == True %}
+                        <li>Male: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li>Male: <span>&#10060;</span></li>
+                    {% endif %}
+                    </div>
+                    <div>
+                    {% if i.scl_gender_female == True %}
+                        <li>Female: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li>Female: <span>&#10060;</span></li>
+                    {% endif %}
+                   </div>
+                   <div>
+                    {% if i.scl_gender_other == True %}
+                        <li>Other: <span style="color: green; font-size: 22px;">&#10004;</span></li>
+                    {% else %}
+                        <li>Other: <span>&#10060;</span></li>
+                    {% endif %}
+                </div>
+            </div>
+                    <div class="line-bot"></div>
+                    <li>Only Physical Disable person are Eligible? : {{i.scl_ask_for_pd}}</li>
+                    <div class="line-bot"></div>
+                    <div class="off-link-scl">
+                    
+                    {% if i.scl_official_link != 'null' %}
+                    <div class="off-link-scl-in1">Official Website: {{i.scl_official_link}} </div>
+                        <div class="off-link-scl-in2"><button onclick="cpyTxt('{{i.scl_official_link}}')" class="button scl-web-btn">
+                        <div class="before-cpy">
+                            Copy link
+                        </div>
+                         
+                        <div class="after-cpy">
+                            <span>&#10003;</span> Copied!!
+                        </div>
+                    </button>
+                    </div>
+                </div>
+                    <div class="line-bot"></div>
+                    {% endif %}
+
+                    <li>Scholarship Description: {{i.scl_description}}</li>
+                    <div class="line-bot"></div>
+                    {% if i.scl_note != '' %}
+                    <li>Note: {{i.scl_note}}</li>
+                    {% endif %}
+
+                    <div class="line-bot"></div>
+
+                </div>
+                </ul>
+            </div>
+            <div class="scl-delete-alert-div" id="scl-delete-alert-id-{{ forloop.counter }}">
+                <p class="delete-name">Are you sure want to delete Scholarship name {{i.scholar_name}} ?</p>
+                <a href="delete/scl_{{i.scl_pk}}"><button class="my-btn1 button primary scl-del-button">Delete</button></a>
+                <button id="scl-cancel-delete" onclick="scl_cancel()" class="my-btn2 button primary scl-can-button">cancel</button>
+            </div>
+            {% endfor %}
+        </table>
+    </div> <!-- <div class="for-school"> over -->
+
+        <div class="for-college">
+            <table border="0" id="myCollegeTable">
+                <thead>
+                    <tr>
+                        <td>No.</td>
+                        <td>Scholarship Name</td>
+                        <td>View</td>
+                        <!-- <td>Edit</td> -->
+                        <td>Delete</td>
+                    </tr>
+                 </thead>
+                    <tbody>
+                    {% for j in cName %}
+                    
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ j.scholar_name }} </td>
+                            <span>
+                            <td id="view-icon-id-{{ forloop.counter }}" onclick="clg_view_icon(this.id)"> <span class="fa fa-eye"></span> </td>
+                            </span>
+                            <span>
+                            <!-- <td id="edit-icon-id-{{ forloop.counter }}"><span>&#x270e;</span></td> -->
+                            <td id="delete-icon-id-{{ forloop.counter }}" onclick="clg_delete_icon(this.id)"><i class="material-icons">&#xe872;</i></td>
+                            </span>
+                        </tr>
+                        
+                        <div class="clg-view-icon-list-div" id="clg-view-icon-list-id-{{ forloop.counter }}">
+                            <div class="clg-con1">
+                            <span onclick="clg_current_close()" class="close-button" >&#x2715;</span>
+                            </div>
+                            <div class="clg-con2">
+                            <ul>
+                                <li> Scholarship Name: {{ j.scholar_name }} </li>
+                                <div class="line-bot"></div>
+                                <div class="course-f4">
+                                <li> Course: </li>
+                                <div class="course-l3">
+                                {% if j.clg_degree_bcom == True %}
+                                <li> B.COM: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> B.COM: <span>&#10060;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_degree_bba == True %}
+                                <li> BBA: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> BBA: <span>&#10060;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_degree_bca == True %}
+                                <li> BCA: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> BCA: <span>&#10060;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_degree_bsc == True %}
+                                <li> BSC: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> BSC: <span>&#10060;</span> </li>
+                                {% endif %}
+                                </div>
+                                <div class="">
+                                {% if j.clg_degree_diploma == True %}
+                                <li> Diploma: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> Diploma: <span>&#10060;</span> </li>
+                                {% endif %}
+                                {% if j.clg_degree_btech == True %}
+                                <li> BE/B.TECH: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> BE/B.TECH: <span>&#10060;</span> </li>
+                                {% endif %}
+                                {% if j.clg_degree_bpharma == True %}
+                                <li> B.PHARMA: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> B.PHARMA: <span>&#10060;</span> </li>
+                                {% endif %}
+                                </div>
+                                </div>
+                                <div class="line-bot"></div>
+                                <li>Year:</li>
+
+                                {% if j.clg_year_1 == True %}
+                                <li> 1<sup>st</sup> Year: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_year_2 == True %}
+                                <li> 2<sup>nd</sup> Year: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_year_3 == True %}
+                                <li> 3<sup>rd</sup> Year: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_year_4 == True %}
+                                <li> 4<sup>th</sup> Year: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% endif %}
+
+                                {% if j.clg_year_5 == True %}
+                                <li> 5<sup>th</sup> Year: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% endif %}
+                                <div class="line-bot"></div>
+                                <div class="clg-cat-cgp-1">
+                                <div style="margin-right: 2vw;">
+                                {% if j.clg_cat_open == True %}
+                                <li> OPEN: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> OPEN: <span>&#10060;</span> </li>
+                                {% endif %}
+                                </div>
+                                <!-- <div class="line-bot"></div> -->
+                                {% if j.clg_cat_ews == True %}
+                                <li> EWS: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> EWS: <span>&#10060;</span> </li>
+                                {% endif %}
+                                
+                                </div>
+                                <div class="clg-cat-cgp-2">
+                                <div style="margin-right: 2vw;">
+                                {% if j.clg_cat_sebc == True %}
+                                <li> SEBC: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> SEBC: <span>&#10060;</span> </li>
+                                {% endif %}
+                                </div>
+                                <!-- <div class="line-bot"></div> -->
+                                {% if j.clg_cat_sc_st == True %}
+                                <li> SC/ST: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <li> SC/ST: <span>&#10060;</span> </li>
+                                {% endif %}
+                                
+                                </div>
+                                <div class="line-bot"></div>
+                                {% if j.clg_year_1 == True %}
+                                    {% if j.clg_cat_open == True %}
+                                        <li> 12<sup>th</sup> Percentile for OPEN catagory: {{ j.clg_for_fy_pr_open }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_ews == True %}
+                                        <li> 12<sup>th</sup> Percentile for EWS catagory: {{ j.clg_for_fy_pr_ews }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_sebc == True %}
+                                        <li> 12<sup>th</sup> Percentile for SEBC catagory: {{ j.clg_for_fy_pr_sebc }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_sc_st == True %}
+                                        <li> 12<sup>th</sup> Percentile for SC/ST catagory: {{ j.clg_for_fy_pr_scst }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if j.clg_year_2 == True or j.clg_year_3 == True or j.clg_year_4 == True or j.clg_year_5 == True %}
+                                    {% if j.clg_cat_open == True %}
+                                        <li> required CGPA for OPEN catagory: {{ j.clg_cgpa_open }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_ews == True %}
+                                        <li> required CGPA for EWS catagory: {{ j.clg_cgpa_ews }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_sebc == True %}
+                                        <li> required CGPA for SEBC catagory: {{ j.clg_cgpa_sebc }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+
+                                    {% if j.clg_cat_sc_st == True %}
+                                        <li> required CGPA for SC/ST catagory: {{ j.clg_cgpa_scst }} </li>
+                                        <div class="line-bot"></div>
+                                    {% endif %}
+                                {% endif %}
+
+                                <li> Annual Income: {{ j.clg_f_income }} </li>
+                                <div class="line-bot"></div>
+                                <div class="clg-gen-con">
+                                {% if j.clg_gender_male == True %}
+                                <div class="clg-gen">
+                                <li> Male: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                </div>
+                                {% else %}
+                                <div class="clg-gen">
+                                <li> Male: <span>&#10060;</span> </li>
+                                </div>
+                                {% endif %}
+
+                                {% if j.clg_gender_female == True %}
+                                <div class="clg-gen">
+                                <li> Female: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                </div>
+                                {% else %}
+                                <div class="clg-gen">
+                                <li> Female: <span>&#10060;</span> </li>
+                                </div>
+                                {% endif %}
+
+                                {% if j.clg_gender_other == True %}
+                                <div class="clg-gen"></div>
+                                <li> Other: <span style="color: green; font-size: 22px;">&#10004;</span> </li>
+                                {% else %}
+                                <div class="clg-gen">
+                                <li> Other: <span>&#10060;</span> </li>
+                                </div>
+                                {% endif %}
+                                </div>
+                                <div class="line-bot"></div>
+                                <li> Only Physical Disable person are Eligible? : {{ j.clg_ask_for_pd }} </li>
+                                <div class="line-bot"></div>
+                                {% if j.clg_official_link != 'null' %}
+                                <div class="clg_off_link_con">
+                                <div class="clg_off_link_in_1">
+                                <li>Official Website: {{j.clg_official_link}} </li>
+                                </div>
+                                <div class="clg_off_link_in_2">
+                                <li><button onclick="cpyTxt('{{j.clg_official_link}}')" class="button scl-web-btn">
+                                    <div class="before-cpy">
+                                        Copy link
+                                    </div>
+                                     
+                                    <div class="after-cpy">
+                                        <span>&#10003;</span> Copied!!
+                                    </div>
+                                </button>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="line-bot"></div>
+                                {% endif %}
+                                <li> Scholarship Description: {{ j.clg_description }} </li>
+                                <div class="line-bot"></div>
+                                {% if j.clg_note != '' %}
+                                    <li>Note: {{j.clg_note}}</li>
+                                    <div class="line-bot"></div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+
+                        <div class="clg-delete-alert-div" id="clg-delete-alert-id-{{ forloop.counter }}">
+                            <p class="delete-name">Are you sure want to delete Scholarship name {{j.scholar_name}} ?</p>
+                            <a href="delete/clg_{{j.clg_pk}}"><button class="my-btn1 button primary scl-del-button">Delete</button></a>
+                            <button id="clg-cancel-delete" onclick="clg_cancel()" class="my-btn2 button primary scl-can-button">cancel</button>
+                        </div>
+
+                    {% endfor %}
+                
+                </tbody>
+            </table>
+        </div> <!-- <div class"for-college"> over -->
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+        const btn = document.getElementById('school');
+    const btn1 = document.getElementById('college');
+    btn.addEventListener('click', function onClick() {
+    // btn.style.backgroundColor = 'salmon';
+    btn.style.backgroundColor = 'rgb(49, 49, 118)';
+    btn1.style.backgroundColor ='rgba(63, 61, 61, 0.222)';
+    });
+
+    btn1.addEventListener('click', function onClick() {
+    // btn1.style.backgroundColor = 'salmon';
+    btn1.style.backgroundColor = 'rgb(49, 49, 118)';
+    btn.style.backgroundColor ='rgba(63, 61, 61, 0.222)';
+    });
+    var elemrnt;
+    elemrnt=document.querySelector(".for-college").style;
+    console.log(elemrnt)
+</script>
+
+</html>

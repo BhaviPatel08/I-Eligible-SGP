@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<!-- <title>Hello, world!</title> -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/try2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+    <!-- <style>
+        body {
+            background-image: url('user_page_image.jpg');
+            opacity: 80%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin-top: 10px;
+        }
+    </style> -->
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.midle4').hide();
+            $('.midle10').hide();
+            $('.midle9').hide();
+            $('.midle8').hide();
+            $('.midle11').hide();
+            $('.midle12').hide();
+            $('.midle14').hide();
+            $('.midle15').hide();
+
+            $('.slct1').change(function () {
+                if ($('#slct1').val() == 'school') {
+                    $('.midle10').hide();
+                    $('.midle4').show();
+                    $('.midle9').hide();
+                    $('.midle8').show();
+                    $('.midle11').hide();
+                    $('.midle12').hide();
+                    $('.midle14').hide();
+                    $('.midle15').hide();
+                }
+
+                if ($('#slct1').val() == 'college') {
+                    // $('.mid3').show();
+                    $('.midle10').hide();
+                    $('.midle4').hide();
+                    $('.midle9').show();
+                    $('.midle11').hide();
+                    $('.midle8').hide();
+                    $('.midle12').hide();
+
+                    $('.midle9').click(function(){
+                        if($('#slct3').val() == 'bba' || $('#slct3').val() == 'bcom' || $('#slct3').val() == 'bca' ||$('#slct3').val() == 'bsc' || $('#slct3').val() == 'diploma'){
+                        $('.midle14').show();
+                        $('.midle15').hide();
+                        $('.midle10').hide();
+                        }
+                        else if($('#slct3').val() == 'btech'){
+                            $('.midle14').hide();
+                            $('.midle15').show();
+                            $('.midle10').hide();
+                        }
+                        else if($('#slct3').val()=='bpharma'){
+                            $('.midle10').show();
+                            $('.midle14').hide();
+                            $('.midle15').hide();
+                        }
+                        else{
+                            $('.midle10').hide();
+                            $('.midle14').hide();
+                            $('.midle15').hide();
+                            $('.midle11').hide();
+                            $('.midle12').hide();
+                        }
+                    });
+                    
+                    
+
+                }
+                $('.midle14').click(function(){
+                            if($('#slct5').val == '1'){
+                                $('.midle8').hide();
+                                $('.midle11').hide();
+                                $('.midle12').show();
+                            }
+                        });
+
+                
+
+                if ($('#slct1').val() == 'nothing') {
+                    $('.midle4').hide();
+                    $('.midle10').hide();
+                    $('.midle9').hide();
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').hide();
+                    $('.midle14').hide();
+                    $('.midle15').hide();
+                }
+                // $('.midle9').show();
+                
+
+                
+
+
+            });
+
+            // if($('#slct3').val() == 'bba'){
+            //         $('.midle14').show();
+                    
+            //     }
+
+            $('.slct3').change(function () {
+                        console.log('Thay jay to saru ho')
+                        // if (document.getElementById('slct4').value == 'bba') {
+                        //     console.log('Thay jay to saru ho')
+                        //     $('.midle14').show();
+                        // }
+                        
+
+
+                    });
+
+
+
+
+
+            $('.slct4').change(function () {
+                // 
+                // console.log(document.getElementById('slct4').value())
+
+
+                if (document.getElementById('slct4').value == '1') {
+                    // alert("it works perfectly")
+                    // console.log('slct4 ni value')
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').show();
+                }
+                else if(document.getElementById('slct4').value == 'year'){
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').hide();
+                }
+                else {
+                    $('.midle8').hide();
+                    $('.midle11').show();
+                    $('.midle12').hide();
+                }
+
+            });
+
+            $('.slct5').change(function () {
+                // 
+                // console.log(document.getElementById('slct4').value())
+
+
+                if (document.getElementById('slct5').value == '1') {
+                    // alert("it works perfectly")
+                    // console.log('slct4 ni value')
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').show();
+                }
+                else if(document.getElementById('slct5').value == 'year'){
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').hide();
+                }
+
+                else {
+                    $('.midle8').hide();
+                    $('.midle11').show();
+                    $('.midle12').hide();
+                }
+
+            });
+
+            $('.slct6').change(function () {
+                // 
+                // console.log(document.getElementById('slct4').value())
+
+
+                if (document.getElementById('slct6').value == '1') {
+                    // alert("it works perfectly")
+                    // console.log('slct4 ni value')
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').show();
+                }
+                else if(document.getElementById('slct6').value == 'year'){
+                    $('.midle8').hide();
+                    $('.midle11').hide();
+                    $('.midle12').hide();
+                }
+                else {
+                    $('.midle8').hide();
+                    $('.midle11').show();
+                    $('.midle12').hide();
+                }
+
+            });
+            
+
+
+
+        });
+    </script>
+    <title>User</title>
+</head>
+
+<body>
+    <div class="head1">
+        <div class="head2">
+            <h2>User Page</h2>
+        </div>
+        <div></div>
+    </div>
+
+    <!-- <div class="midle">
+        <div class="midle1">
+            <h2>Student parameter</h2>
+        </div>
+    </div> -->
+    <div class="midle2">
+
+        <form action="{% url 'display' %}" method="POST">
+            {% csrf_token %}
+            <div class="mid">
+
+                <div class="midle3">
+                    <select class="slct1 form-select form-select-sm" aria-label=".form-select-lg example" id="slct1" name="scl-clg">
+
+                        <option value="nothing">---Your Studies---</option>
+                        <!-- <label for="">---Your Studies---</label> -->
+                        <option value="school">School</option>
+                        <option value="college">College</option>
+                    </select>
+                </div>
+                <div class="midle4">
+                    <select name="slct2" id="slct2">
+
+                        <option value="">---Enter your standard---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+
+
+                    </select>
+                </div>
+
+                <div class="midle9">
+                    <select name="slct3" id="slct3">
+                        <option value="deg">---Enter your degree---</option>
+                        <option value="bba">B.B.A</option>
+                        <option value="bcom">B.COM</option>
+                        <option value="bca">B.C.A</option>
+                        <option value="bsc">B.S.C</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="btech">B.E/B.Tech</option>
+                        <option value="bpharma">B.Pharma</option>
+                        <!-- <option value="bcom bca bsc diplo be/btech bpharma"></option> -->
+
+                    </select>
+
+
+                </div>
+
+                <div class="midle10">
+                    <select class="slct4" name="slct4" id="slct4">
+                        <option value="year">---Enter your year---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </div>
+                <div class="midle14">
+                    <select class="slct5" name="slct5" id="slct5">
+                        <option value="year">---Enter your year---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+
+                    </select>
+
+                </div>
+                <div class="midle15">
+                    <select class="slct6" name="slct6" id="slct6">
+                        <option value="year">---Enter your year---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+
+                </div>
+
+                <script>
+                    // function populate2(s2, s3) {
+                    //     var s2 = document.getElementById(s2);
+                    //     var s3 = document.getElementById(s3);
+                    //     console.log(s2)
+                    //     console.log(s3)
+                    //     s3.innerHTML = "";
+                    //     console.log("inside function");
+                    //     console.log(s2.value)
+                    //     if (s2.value == "b.b.a") {
+
+                    //         var optionArray = ['1st year|1st Year', '2nd year|2nd Year', '3rd Year|3rd Year'];
+                    //     }
+
+                    //     for (var option in optionArray) {
+                    //         var pair = optionArray[option].split("|");
+                    //         var newoption = document.createElement("option");
+
+                    //         newoption.value = pair[0];
+                    //         newoption.innerHTML = pair[1];
+                    //         s3.option.add(newoption);
+                    //     }
+                    // }
+                    // function populate(s1, s2) {
+                    //     var s1 = document.getElementById(s1);
+                    //     var s2 = document.getElementById(s2);
+
+                    //     s2.innerHTML = "";
+
+                    //     if (s1.value == "school") {
+                    //         var optionArray = ['1st standard|1st Standard', '2nd standard|2nd Standard ', '3rd standard|3rd Standard', '4th standard|4th Standard', '5th standard|5th Standard', '6th standard|6th Standard', '7th standard|7th Standard', '8th standard|8th Standard', '9th standard|9th Standard', '10th standard|10th Standard', '11th standard|11th Standard', '12th standard|12th Standard'];
+
+
+                    //     }
+                    //     else if (s1.value == "college") {
+                    //         var optionArray = ['b.com|B.Com', 'b.b.a|B.B.A', 'b.c.a|B.C.A', 'b.s.c|B.S.C', 'b.e/b.tech|B.E/B.Tech', 'b.pharm|B.Pharm', 'diploma|Diploma'];
+                    //     }
+
+                    //     for (var option in optionArray) {
+                    //         var pair = optionArray[option].split("|");
+                    //         var newoption = document.createElement("option");
+
+                    //         newoption.value = pair[0];
+                    //         newoption.innerHTML = pair[1];
+                    //         s2.options.add(newoption);
+                    //     }
+                    // }
+                </script>
+
+
+
+
+            </div>
+            <div class="mid2">
+                <div class="midle5">
+                    <select id="gender" name="gender">
+                        <option value="">---Select your Gender---</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="midle6">
+                    <select id="cast" name="catagory">
+                        <option value="">---Select your Cast---</option>
+                        <option value="sebc">SEBC</option>
+                        <option value="open">OPEN</option>
+                        <option value="sc_st">SC/ST</option>
+                        <option value="ews">EWS</option>
+                    </select>
+                </div>
+                <div class="midle7">
+                    <p>
+                        <label>Family Anual Income</label>
+                        <input class="income" type="number" min="1" name="f-income">
+                    <p>
+                </div>
+
+            </div>
+
+            <div class="mid3">
+                <div class="midle8">
+                    <p>
+                        <label>Percentile In Last Standard</label>
+                        <input class="pr" type="number" min="0" max="100" step="0.01" placeholder="0.00" name="scl-pr">
+                    </p>
+
+                </div>
+                <div class="midle11">
+                    <label>CGPA of last semester</label>
+                    <input class="cg" type="number" min="0" max="10" step="0.01" placeholder="0.00" name="cgpa">
+                </div>
+
+                <div class="midle12">
+                    <label>Enter your 12th Percentile</label>
+                    <input class="12th" type="number" min="0" max="100" step="0.01" placeholder="0.00" name="clg-12th-pr">
+                </div>
+            </div>
+
+            <div class="mid4">
+                <div class="midle13">
+                    <label for="">Physically disabled? </label>
+                    <input type="radio" id="" name="phy" value="yes">
+                    <label for="">YES</label>
+                    <input type="radio" id="" name="phy" value="no">
+                    <label for="">NO</label>
+                </div>
+            </div>
+
+            <div class="last">
+                <input type="submit" value="Submit" id="submit_button">
+            </div>
+        </form>
+    </div>
+    <div class="bottum">
+        <p>NOTICE:- You have to fill all the details before the submit your details, And read carefuuly before filling
+            the details.</p>
+        <p>Benifit:-From this web you can know scolerships under your criteria and website for aplying for the
+            scolarship</p>
+        <p></p>
+
+    </div>
+
+</body>
+
+</html>

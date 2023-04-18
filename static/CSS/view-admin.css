@@ -1,0 +1,702 @@
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   list-style-type: none;
+   text-decoration: none;
+}
+
+
+.sidebar{
+   position: fixed;
+   left: -250px;
+   width: 250px;
+   height: 100%;
+   /* background: #042331; */
+   background: rgb(49, 49, 118);
+   transition: all .5s ease;
+}
+
+.sidebar header{
+   font-size: 22px;
+   color: white;
+   text-align: center;
+   line-height: 70px;
+   background: rgb(49, 49, 118);
+   user-select: none;
+}
+
+.sidebar ul a{
+   display: block;
+   height: 100%;
+   width: 100%;
+   line-height: 65px;
+   font-size: 20px;
+   color: white;
+   padding-left: 40px;
+   box-sizing: border-box;
+   border-top: 1px solid rgba(255,255,255,0.1);
+   border-bottom: 1px solid black;
+   transition: .4s;
+}
+
+.sidebar li:hover a{
+   padding-left: 50px;
+}
+
+.sidebar ul a i{
+   margin-right: 16px;
+}
+
+ /* .side-bar{
+    width: 345px;
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: rgb(49, 49, 118);
+ } */
+
+ #check{
+   display: none;
+
+ }
+
+ label #btnf,label #cancelf{
+   position: absolute;
+   cursor: pointer;
+   background: #042331;
+   border-radius: 3px;
+ }
+
+ label #btnf{
+   left: 40px;
+   top: 25px;
+   font-size: 35px;
+   color: white;
+   padding: 6px 12px;
+   transition: all .5s;
+ }
+
+ label #cancelf{
+   z-index: 1111;
+   left: -195px;
+   top: 17px;
+   font-size: 30px;
+   color: #0a5275;
+   padding: 4px 9px;
+   transition: all .5s ease;
+ }
+
+ #check:checked ~ .sidebar{
+   left: 0;
+ }
+
+ #check:checked ~ label #btnf{
+   left: 250px;
+   opacity: 0;
+   pointer-events: none;
+ }
+
+ #check:checked ~ label #cancelf{
+   left: 195px;
+   /* opacity: 0;
+   pointer-events: none; */
+ }
+
+.sec1{
+   background: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 100vh;
+
+}
+
+.hedec1{
+   margin-left: 30%;
+}
+
+
+
+/*  */
+
+ .side-bar{
+    width: 345px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: rgb(49, 49, 118);
+ }
+
+ .sub-side{
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #fff;
+ }
+
+ .side-bar-menu li{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+ }
+
+ .side-bar-menu a{
+    padding-left: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+ }
+
+ .side-bar-menu{
+   margin-top: 0.5rem;
+ }
+
+ .side-bar-menu a.active{
+    background: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: black;
+    border-radius: 30px 0px 0px 30px; 
+ }
+
+ .side-bar-menu a span{
+    font-size: 1.2rem;
+    padding-right: 1rem;
+ }
+
+ /* header{
+   margin-left: 25vw;
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem;
+ } */
+body{
+   background-color: white;
+   font-family: 'Roboto',sans-serif;
+}
+
+.hed-line{
+   height: 0.7vh;
+   margin-left: 25vw;
+   width: 72vw;
+   background-color: rgb(49, 49, 118);
+}
+
+ .main-content{
+      /* margin-top: 5vh; */
+      margin-left: 20vw;
+      margin-right: 2vw;
+      padding: 2%;
+ }
+
+ .hed1{
+   padding-top: 2vh;
+   padding-left: 3vw;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.2);
+   height: 8vh;
+ }
+
+ .hed1 select{
+      height: 4vh;
+      width: 7vw;
+      margin-left: 4%;
+ }
+
+   /* .for-school-standard{
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+   } */
+
+/* .for-school-standard-in{
+   display: flex;
+}
+
+.for-school-standard-in1{
+   margin-left: 6vw;
+}
+
+.for-school-standard-in2{
+   margin-left: 6vw;
+} */
+
+/* .for-school-catagory{
+   display: flex;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .for-school-catagory-in{
+   margin-right: 6vw;
+} */
+
+/* .con1{
+   margin-top: 4vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .for-school-desc{
+   margin-bottom: 3vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+.sub1{
+   /* text-align: center; */
+   margin-left: 30vw;
+   background-color: rgb(49, 49, 118); /* Green */
+   border: none;
+   border-radius: 13px;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+}
+
+/* .degree-outter{
+   display: flex;
+   margin-bottom: 3vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .degree{
+   margin-right: 8vw;
+} */
+
+/* .for-college-catagory-outter{
+   display: flex;
+   margin-bottom: 3vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .for-college-catagory{
+   margin-right: 8vw;
+} */
+
+/* .mar-top-set{
+   margin-bottom: 2vh;
+} */
+
+/* .con3{
+   margin-bottom: 3vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .for-college-desc{
+   margin-bottom: 3vh;
+   padding-top: 2vh;
+   padding-left: 3vw;
+   padding-bottom: 2vh;
+   background-color: rgb(255, 255, 240);
+   box-shadow: 2px 2px 6px 6px rgba(0, 0, 0, 0.2);
+} */
+
+/* .mar-bottom-set{
+   height: 2vh;
+} */
+
+
+
+
+/* new css  */
+#college{
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+   font-size: 144%;
+   border-top: none;
+   border-left: none;
+   height: 6vh;
+   width: 30vw;
+   color: white;
+   /* color: ; */
+   border-color: black;
+   border-radius: 13px;
+   background-color: rgba(63, 61, 61, 0.222);
+}
+
+#school{
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+   font-size: 144%;
+   border-top: none;
+   border-left: none;
+   height: 6vh;
+   width: 30vw;
+   color: white;
+   /* backgrocolor: rgb(128, 170, 255); */
+   background-color: rgb(49, 49, 118);
+   border-color: black;
+   border-radius: 13px;
+}
+
+.for-school{
+   margin-top: 3vh;
+   margin-left: 10vw;
+   width: 100%;
+   height: auto;
+}
+
+.scl-view-icon-list-div{
+   width: 550px;
+   height: 100%;
+   position: absolute;
+    top: 0.1px;
+    bottom: 1px; 
+   color: black;
+   margin-top: 4vh;
+   margin-left: 5vw;
+   margin-right: 48vw;
+   margin-bottom: 4vh;
+   padding-top: 0.7vh;
+   padding-bottom: 4vh;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+   background-color: white;
+}
+
+.scl-gen{
+   display: flex;
+}
+
+/* div:not(.scl-view-icon-list-div){
+   opacity: 0.4;
+} */
+
+.scl-view-icon-list-div-inner{
+   padding-left: 6vw;
+   padding-right: 6vw;
+}
+
+#eye-icon{
+   height: 110%;
+}
+
+.edit-icon{
+   height: 170%;
+}
+
+.material-icons{
+   /* height:60%;
+   width: auto; */
+   max-height: 6px;
+   max-width: 6px;
+}
+
+.scl-view-icon-list-div-inner1{
+   display: flex;
+   margin-bottom: 0%;
+}
+
+.scl-view-icon-list-div-inner2{
+   display: flex;
+   margin-bottom: 0%;
+}
+
+
+.list-com{
+   margin-bottom: 1vh;
+}
+
+.list-odd{
+   margin-right: 3vw;
+}
+
+.st12{
+   margin-bottom: 2.5vh;
+   margin-left: -0.5vw;
+}
+
+.line-bot{
+   height: 0.1vh;
+   background-color: black;
+   justify-content: center;
+   width: 100%;
+   margin-bottom: 2vh;
+}
+
+.close-button{
+   /* height: 1%;
+   width: 2%; */
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   max-height: 33px;
+   max-width: 50px;
+   padding: 0.8%;
+   border-color: black;
+   border-style: solid;
+   padding-left: 0.72vw;
+   padding-right: 0.72vw;
+   border-width: 0.1px;
+   margin-left: 90%;
+}
+
+.close-button:hover {
+   background-color: rgb(255, 30, 0);
+   color:white;
+ }
+
+/* .list-even{
+   
+} */
+
+.scl-delete-alert-div{
+   background-color: white;
+   position: fixed;
+   top: 80vh;
+   left: 60vw;
+   width: 30vw;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.551);
+   /* border: 0.1px solid black; */
+   padding-top: 1vh;
+   padding-left: 2vw;
+   padding-right: 2vw;
+   padding-bottom: 1vh;
+}
+
+.my-btn1{
+   margin-left: 15vw;
+   margin-right: 0.5VW;
+}
+
+.delete-name
+{
+   margin-bottom: 1vh;
+}
+/* .my-btn2{
+   
+} */
+
+/* .for-school{
+   margin-left: 60vw;
+} */
+
+#mySchoolTable{
+   border-collapse: collapse;
+   margin: 25px 0;
+   font-size: 0.9em;
+   min-width: 700px;
+   border-radius: 5px 5px 0 0;
+   overflow: hidden;
+   box-shadow: 0 0 20px rgb(0,0,0,0.15);
+}
+
+#mySchoolTable thead tr{
+   background-color: rgb(49, 49, 118);
+   color: #ffffff;
+   text-align: left;
+   font-weight: bold;
+   /* height: 120%; */
+   
+}
+
+#mySchoolTable th,
+#mySchoolTable td{
+   padding: 12px 15px;
+}
+
+#mySchoolTable tbody tr{
+   border-bottom: 1px solid #dddddd;
+}
+
+#mySchoolTable tbody tr :nth-of-type(odd){
+   background-color: #f3f3f3;
+}
+
+/* #mySchoolTable tbody tr:last-of-type{
+   border-bottom: 2px solid #009879;
+} */
+
+/* #mySchoolTable tbody tr.active-row{
+   font-weight: bold;
+   color: #009879;
+} */
+
+#myCollegeTable{
+   border-collapse: collapse;
+   margin: 25px 0;
+   font-size: 0.9em;
+   min-width: 700px;
+   border-radius: 5px 5px 0 0;
+   overflow: hidden;
+   box-shadow: 0 0 20px rgb(0,0,0,0.15);
+}
+
+#myCollegeTable thead tr{
+   background-color: rgb(49, 49, 118);
+   color: #ffffff;
+   text-align: left;
+   font-weight: bold;
+   /* height: 120%; */
+   
+}
+
+#myCollegeTable th,#myCollegeTable td{
+   padding: 12px 15px;
+}
+
+#myCollegeTable tbody tr{
+   border-bottom: 1px solid #dddddd;
+}
+
+#myCollegeTable tbody tr :nth-of-type(odd){
+   background-color: #f3f3f3;
+}
+
+.for-college{
+   margin-left: 10vw;
+}
+
+/* .std2{
+   margin-top: 1vh;
+   margin-left: 0.3vw;
+} */
+
+/*  */
+.button {
+   font-family:'Open Sans';
+   font-size: 16px;
+   font-weight:400;
+   display:inline-block;
+   color:#FFF;
+   border-radius: .25em;
+   text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+ }
+ 
+ .primary {
+   line-height:40px;
+   transition:ease-in-out .2s;
+   padding: 0 16px;
+ }
+ 
+ .primary:hover, .condensed:hover, .touch:hover {
+   transform:scale(1.02);
+   box-shadow:2px 2px 5px rgba(0,0,0,0.20), inset 0 0 0 99999px rgba(0,0,0,0.2);
+ }
+
+.scl-del-button{
+   background-color: rgb(212, 25, 25);
+}
+
+.scl-can-button{
+   background-color: darkgrey;
+}
+
+.off-link-scl{
+   display: flex;
+}
+
+.off-link-scl-in1{
+   margin-right: 1.5vw;
+}
+
+.scl-web-btn{
+   background-color: rgb(49, 49, 118);
+   margin-bottom: 1vh;
+   width: 90px;
+   height: 40px;
+}
+
+/* college */
+
+.clg-delete-alert-div{
+   background-color: white;
+   position: fixed;
+   top: 80vh;
+   left: 60vw;
+   width: 30vw;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.551);
+   /* border: 0.1px solid black; */
+   padding-top: 1vh;
+   padding-left: 2vw;
+   padding-right: 2vw;
+   padding-bottom: 1vh;
+}
+
+.clg-view-icon-list-div{
+   width: 600px;
+   height: 100%;
+   position: absolute;
+   top: 0.1px;
+   bottom: 1px; 
+   color: black;
+   margin-top: 4vh;
+   margin-left: 5vw;
+   margin-right: 48vw;
+   margin-bottom: 4vh;
+   padding-top: 0.7vh;
+   padding-bottom: 4vh;
+   padding-left: 4vw;
+   /* padding-right: 4vw; */
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+   background-color: white;
+}
+
+.course-l3{
+   margin-right: 3vw;
+}
+
+.course-f4{
+   display: flex;
+}
+
+.clg-cat-cgp-1{
+   display: flex;
+}
+.clg-cat-cgp-2{
+   display: flex;
+}
+
+.clg-gen-con{
+   display: flex;
+}
+
+.clg_off_link_con{
+   display: flex;
+}
+
+.clg_off_link_in_1{
+   margin-right: 2vw;
+}
+
+.clg-con1{
+   padding-right: 1vw; 
+}
+
+.clg-con2{
+   padding-right: 4vw; 
+}

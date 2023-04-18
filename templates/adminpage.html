@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/adminstyle.css">
+    <!-- Log Out logo-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--Edit logo-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="/static/JS/adminJS.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script>
+        // $(document).ready(function(){
+       
+    // });
+        $(document).ready(function () {
+            console.log('function called0')
+            $("#selectall_s1").click(function(){
+            $("#id_std_1").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_2").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_3").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_4").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_5").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_6").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_7").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_8").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_9").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_10").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_11").prop("checked",$("#selectall_s1").is(":checked"));
+            $("#id_std_12").prop("checked",$("#selectall_s1").is(":checked"));            
+        });
+        //javascript for catagory 
+        // $("#selectall_s2").click(function(){
+        //     console.log('function called')
+        //     $("#id_scl_open").prop("checked",$("#selectall_s2").is(":checked"));
+        //     $("#id_scl_ews").prop("checked",$("#selectall_s2").is(":checked"));
+        //     $("#id_scl_sebc").prop("checked",$("#selectall_s2").is(":checked"));
+        //     $("#id_scl_sc_st").prop("checked",$("#selectall_s2").is(":checked"));
+        // });
+
+        // selectall_c1
+        $("#selectall_c1").click(function(){
+            console.log('function called')
+            $("#id_clg_degree_bcom").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_bba").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_bca").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_bsc").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_diploma").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_btech").prop("checked",$("#selectall_c1").is(":checked"));
+            $("#id_clg_degree_bpharma").prop("checked",$("#selectall_c1").is(":checked"));
+        });
+            let x1=0,x2=0,x3=0,x4=0,x5=0,xop=0,xew=0,xse=0,xscst=0;
+
+            $(".for-college").hide();
+
+            $('#id_select').change(function () {
+
+                if ($(this).val() == "clg") {
+                    $(".for-college").fadeIn();
+                    $(".degree").fadeIn();
+                    $(".for-school").fadeOut();
+                    $(".for-gene").fadeOut();
+                    $(".for-eng").fadeOut();
+                    $(".for-madi").fadeOut();
+
+                    document.getElementById("for-school").reset();
+                    
+
+                    $(".degree").click(function () {
+
+
+                        if (document.getElementById("id_clg_degree_bpharma").checked) {
+                            $(".for-gene").fadeIn();
+                            $(".for-eng").fadeIn();
+                            $(".for-madi").fadeIn();
+                        }
+                        else if (document.getElementById("id_clg_degree_btech").checked) {
+                            $(".for-gene").fadeIn();
+                            $(".for-eng").fadeIn();
+                            $(".for-madi").fadeOut();
+                        }
+                        else if (document.getElementById("id_clg_degree_bcom").checked || document.getElementById("id_clg_degree_bba").checked || document.getElementById("id_clg_degree_bca").checked || document.getElementById("id_clg_degree_bsc").checked || document.getElementById("id_clg_degree_diploma").checked) {
+                            $(".for-gene").fadeIn();
+                            $(".for-eng").fadeOut();
+                            $(".for-madi").fadeOut();
+                        }
+                        else {
+                            $(".for-gene").fadeOut();
+                        }
+
+                        if(!(document.getElementById("id_clg_degree_bpharma").checked) && !(document.getElementById("id_clg_degree_btech").checked) && !(document.getElementById("id_clg_degree_bcom").checked) && !(document.getElementById("id_clg_degree_bba").checked) && !(document.getElementById("id_clg_degree_bca").checked) && !(document.getElementById("id_clg_degree_bsc").checked) && !(document.getElementById("id_clg_degree_diploma").checked))
+                            {
+                                $(".for-gene").fadeOut();
+                                $(".for-eng").fadeOut();
+                                $(".for-madi").fadeOut();
+                            }
+                    });
+                }
+
+                
+
+                if ($(this).val() == "scl") {
+                    $(".for-college").hide();
+                    $(".for-school").fadeIn();
+
+                    $('.percentage-OPEN').fadeOut();
+                    $('.percentage-EWS').fadeOut();
+                    $('.percentage-SEBC').fadeOut();
+                    $('.percentage-SC-ST').fadeOut();
+                    
+                    document.getElementById("for-school").reset();
+                }
+
+                
+
+                $('.cgpa-OPEN').hide();
+                $('.cgpa-EWS').hide();
+                $('.cgpa-SEBC').hide();
+                $('.cgpa-SC-ST').hide();
+
+                $('.pr-for-fy-open').hide();
+                $('.pr-for-fy-ews').hide();
+                $('.pr-for-fy-sebc').hide();
+                $('.pr-for-fy-sc-st').hide();
+
+                
+
+                $('#id_clg_year_1').click(function (){
+                    x1++;
+
+                    document.getElementById("id_clg_for_fy_pr_open").value = "";
+                    document.getElementById("id_clg_for_fy_pr_ews").value = "";
+                    document.getElementById("id_clg_for_fy_pr_sebc").value = "";
+                    document.getElementById("id_clg_for_fy_pr_scst").value = "";
+
+                    if(xop%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-open').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_open").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-open').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_open").required = false;
+                    }
+
+                    if(xew%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-ews').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_ews").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-ews').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_ews").required = false;
+                    }
+
+                    if(xse%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-sebc').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_sebc").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-sebc').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_sebc").required = false;
+                    }
+                    
+                    if(xscst%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-sc-st').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_scst").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-sc-st').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_scst").required = false;
+                    }
+
+                });
+
+                $('#id_clg_year_2').click(function (){
+                    x2++;
+
+                    if(xop%2==1 && x2%2==1)
+                    {
+                        $('.cgpa-OPEN').fadeIn();
+                        document.getElementById("id_clg_cgpa_open").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-OPEN').fadeOut();
+                        document.getElementById("id_clg_cgpa_open").value = "";
+                        document.getElementById("id_clg_cgpa_open").required = false;
+                    }
+
+                    if(xew%2==1 && x2%2==1)
+                    {
+                        $('.cgpa-EWS').fadeIn();
+                        document.getElementById("id_clg_cgpa_ews").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-EWS').fadeOut();
+                        document.getElementById("id_clg_cgpa_ews").value = "";
+                        document.getElementById("id_clg_cgpa_ews").required = false;
+                    }
+
+                    if(xse%2==1 && x2%2==1)
+                    {
+                        $('.cgpa-SEBC').fadeIn();
+                        document.getElementById("id_clg_cgpa_sebc").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SEBC').fadeOut();
+                        document.getElementById("id_clg_cgpa_sebc").value = "";
+                        document.getElementById("id_clg_cgpa_sebc").required = false;
+                    }
+
+                    if(xscst%2==1 && x2%2==1)
+                    {
+                        $('.cgpa-SC-ST').fadeIn();
+                        document.getElementById("id_clg_cgpa_scst").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SC-ST').fadeOut();
+                        document.getElementById("id_clg_cgpa_scst").value = "";
+                        document.getElementById("id_clg_cgpa_scst").required = false;
+                    }
+                });
+
+                $('#id_clg_year_3').click(function (){
+                    x3++;
+
+                    if(xop%2==1 && x3%2==1)
+                    {
+                        $('.cgpa-OPEN').fadeIn();
+                        document.getElementById("id_clg_cgpa_open").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-OPEN').fadeOut();
+                        document.getElementById("id_clg_cgpa_open").value = "";
+                        document.getElementById("id_clg_cgpa_open").required = false;
+                    }
+
+                    if(xew%2==1 && x3%2==1)
+                    {
+                        $('.cgpa-EWS').fadeIn();
+                        document.getElementById("id_clg_cgpa_ews").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-EWS').fadeOut();
+                        document.getElementById("id_clg_cgpa_ews").value = "";
+                        document.getElementById("id_clg_cgpa_ews").required = false;
+                    }
+
+                    if(xse%2==1 && x3%2==1)
+                    {
+                        $('.cgpa-SEBC').fadeIn();
+                        document.getElementById("id_clg_cgpa_sebc").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SEBC').fadeOut();
+                        document.getElementById("id_clg_cgpa_sebc").value = "";
+                        document.getElementById("id_clg_cgpa_sebc").required = false;
+                    }
+
+                    if(xscst%2==1 && x3%2==1)
+                    {
+                        $('.cgpa-SC-ST').fadeIn();
+                        document.getElementById("id_clg_cgpa_scst").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SC-ST').fadeOut();
+                        document.getElementById("id_clg_cgpa_scst").value = "";
+                        document.getElementById("id_clg_cgpa_scst").required = false;
+                    }
+
+                });
+
+                $('#id_clg_year_4').click(function (){
+                    x4++;
+
+                    if(xop%2==1 && x4%2==1)
+                    {
+                        $('.cgpa-OPEN').fadeIn();
+                        document.getElementById("id_clg_cgpa_open").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-OPEN').fadeOut();
+                        document.getElementById("id_clg_cgpa_open").required = false;
+                        document.getElementById("id_clg_cgpa_open").value = "";
+                    }
+
+                    if(xew%2==1 && x4%2==1)
+                    {
+                        $('.cgpa-EWS').fadeIn();
+                        document.getElementById("id_clg_cgpa_ews").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-EWS').fadeOut();
+                        document.getElementById("id_clg_cgpa_ews").value = "";
+                        document.getElementById("id_clg_cgpa_ews").required = false;
+                    }
+
+                    if(xse%2==1 && x4%2==1)
+                    {
+                        $('.cgpa-SEBC').fadeIn();
+                        document.getElementById("id_clg_cgpa_sebc").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SEBC').fadeOut();
+                        document.getElementById("id_clg_cgpa_sebc").value = "";
+                        document.getElementById("id_clg_cgpa_sebc").required = false;
+                    }
+
+                    if(xscst%2==1 && x4%2==1)
+                    {
+                        $('.cgpa-SC-ST').fadeIn();
+                        document.getElementById("id_clg_cgpa_scst").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SC-ST').fadeOut();
+                        document.getElementById("id_clg_cgpa_scst").value = "";
+                        document.getElementById("id_clg_cgpa_scst").required = false;
+                    }
+
+                });
+
+                $('#id_clg_year_5').click(function (){
+                    x5++;
+
+                    if(xop%2==1 && x5%2==1)
+                    {
+                        $('.cgpa-OPEN').fadeIn();
+                        document.getElementById("id_clg_cgpa_open").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-OPEN').fadeOut();
+                        document.getElementById("id_clg_cgpa_open").value = "";
+                        document.getElementById("id_clg_cgpa_open").required = false;
+                    }
+
+                    if(xew%2==1 && x5%2==1)
+                    {
+                        $('.cgpa-EWS').fadeIn();
+                        document.getElementById("id_clg_cgpa_ews").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-EWS').fadeOut();
+                        document.getElementById("id_clg_cgpa_ews").value = "";
+                        document.getElementById("id_clg_cgpa_ews").required = false;
+                    }
+
+                    if(xse%2==1 && x5%2==1)
+                    {
+                        $('.cgpa-SEBC').fadeIn();
+                        document.getElementById("id_clg_cgpa_sebc").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SEBC').fadeOut();
+                        document.getElementById("id_clg_cgpa_sebc").value = "";
+                        document.getElementById("id_clg_cgpa_sebc").required = false;
+                    }
+
+                    if(xscst%2==1 && x5%2==1)
+                    {
+                        $('.cgpa-SC-ST').fadeIn();
+                        document.getElementById("id_clg_cgpa_scst").required = true;
+                    }
+                    else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0){
+                        $('.cgpa-SC-ST').fadeOut();
+                        document.getElementById("id_clg_cgpa_scst").value = "";
+                        document.getElementById("id_clg_cgpa_scst").required = false;
+                    }
+
+                });
+
+                
+                $("#id_clg_cat_open").click(function (){ 
+
+                    xop++;
+
+                    document.getElementById("id_clg_for_fy_pr_open").value = "";
+                    document.getElementById("id_clg_cgpa_open").value = "";
+                
+                    if(xop%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-open').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_open").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-open').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_open").required = false;
+                    }
+
+                    if(xop%2==1)
+                    {
+                        if(x2%2==1 || x3%2==1 || x4%2==1 || x5%2==1)
+                        {
+                            $('.cgpa-OPEN').fadeIn();
+                            document.getElementById("id_clg_cgpa_open").required = true;
+                        }
+                        else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0)
+                        {
+                            $('.cgpa-OPEN').fadeOut();
+                            document.getElementById("id_clg_cgpa_open").required = false;
+                        }
+                    }
+                    else{
+                        $('.cgpa-OPEN').fadeOut();
+                        document.getElementById("id_clg_cgpa_open").required = false;
+                    }
+
+                });
+                
+
+                $("#id_clg_cat_ews").click(function () {
+
+                    xew++;
+                
+                    document.getElementById("id_clg_for_fy_pr_ews").value = "";
+                    document.getElementById("id_clg_cgpa_ews").value = "";
+
+                    if(xew%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-ews').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_ews").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-ews').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_ews").required = false;
+                    }
+
+                    if(xew%2==1)
+                    {
+                        if(x2%2==1 || x3%2==1 || x4%2==1 || x5%2==1)
+                        {
+                            $('.cgpa-EWS').fadeIn();
+                            document.getElementById("id_clg_cgpa_ews").required = true;
+                        }
+                        else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0)
+                        {
+                            $('.cgpa-EWS').fadeOut();
+                            document.getElementById("id_clg_cgpa_ews").required = false;
+                        }
+                    }
+                    else{
+                        $('.cgpa-EWS').fadeOut();
+                        document.getElementById("id_clg_cgpa_ews").required = false;
+                    }
+
+                });
+
+                $("#id_clg_cat_sebc").click(function () {
+
+                    xse++;
+
+                    document.getElementById("id_clg_for_fy_pr_sebc").value = "";
+                    document.getElementById("id_clg_cgpa_sebc").value = "";
+                
+                    if(xse%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-sebc').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_sebc").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-sebc').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_sebc").required = false;
+                    }
+
+                    if(xse%2==1)
+                    {
+                        if(x2%2==1 || x3%2==1 || x4%2==1 || x5%2==1)
+                        {
+                            $('.cgpa-SEBC').fadeIn();
+                            document.getElementById("id_clg_cgpa_sebc").required = true;
+                        }
+                        else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0)
+                        {
+                            $('.cgpa-SEBC').fadeOut();
+                            document.getElementById("id_clg_cgpa_sebc").required = false;
+                        }
+                    }
+                    else{
+                        $('.cgpa-SEBC').fadeOut();
+                        document.getElementById("id_clg_cgpa_sebc").required = false;
+                    }
+
+                });
+
+                $("#id_clg_cat_sc_st").click(function () {
+
+                    xscst++;
+
+                    document.getElementById("id_clg_for_fy_pr_scst").value = "";
+                    document.getElementById("id_clg_cgpa_scst").value = "";
+                
+                    if(xscst%2==1 && x1%2==1)
+                    {
+                        $('.pr-for-fy-sc-st').fadeIn();
+                        document.getElementById("id_clg_for_fy_pr_scst").required = true;
+                    }
+                    else{
+                        $('.pr-for-fy-sc-st').fadeOut();
+                        document.getElementById("id_clg_for_fy_pr_scst").required = false;
+                    }
+
+                    if(xscst%2==1)
+                    {
+                        if(x2%2==1 || x3%2==1 || x4%2==1 || x5%2==1)
+                        {
+                            $('.cgpa-SC-ST').fadeIn();
+                            document.getElementById("id_clg_cgpa_scst").required = true;
+                        }
+                        else if(x2%2==0 && x3%2==0 && x4%2==0 && x5%2==0)
+                        {
+                            $('.cgpa-SC-ST').fadeOut();
+                            document.getElementById("id_clg_cgpa_scst").required = false;
+                        }
+                    }
+                    else{
+                        $('.cgpa-SC-ST').fadeOut();
+                        document.getElementById("id_clg_cgpa_scst").required = false;
+                    }
+                    
+                });
+
+
+            });
+
+           
+            $('.percentage-OPEN').hide();
+            $('.percentage-EWS').hide();
+            $('.percentage-SEBC').hide();
+            $('.percentage-SC-ST').hide();
+
+            $('#id_scl_open').click(function () {
+                $('.percentage-OPEN').toggle();
+                document.getElementById("id_scl_open_pr").value="";
+            });
+            $('#id_scl_ews').click(function () {
+                $('.percentage-EWS').toggle();
+                document.getElementById("id_scl_ews_pr").value="";
+            });
+            $('#id_scl_sebc').click(function () {
+                $('.percentage-SEBC').toggle();
+                document.getElementById("id_scl_sebc_pr").value="";
+            });
+            $('#id_scl_sc_st').click(function () {
+                $('.percentage-SC-ST').toggle();
+                document.getElementById("id_scl_sc_st_pr").value="";
+            });
+
+
+            // document.getElementById("for-school-submit").disabled = true;
+            let flag1=0;
+            let flag2=0;
+            $('.for-school-common-std-cat').click(function (){
+                let s = "id_std";
+                flag1 = 0;
+                const myArr = s.split("_");
+                for(let i=1;i<=12;i++)
+                {
+                    s = myArr[0].concat("_",myArr[1],"_",i)
+                    if(document.getElementById(s).checked)
+                    {
+                        flag1 = 1;
+                        break;
+                    }
+                }
+                
+                if(document.getElementById('id_scl_open').checked || document.getElementById('id_scl_ews').checked || document.getElementById('id_scl_sebc').checked || document.getElementById('id_scl_sc_st').checked)
+                {
+                    flag2 = 1;
+                    if(document.getElementById('id_scl_open').checked)
+                    {
+                        document.getElementById('id_scl_open_pr').required = true;
+                    }
+                    if(document.getElementById('id_scl_ews').checked)
+                    {
+                        document.getElementById('id_scl_ews_pr').required = true;
+                    }
+                    if(document.getElementById('id_scl_sebc').checked)
+                    {
+                        document.getElementById('id_scl_sebc_pr').required = true;
+                    }
+                    if(document.getElementById('id_scl_sc_st').checked)
+                    {
+                        document.getElementById('id_scl_sc_st_pr').required = true;
+                    }
+                }
+                
+                if(document.getElementById('id_scl_open').checked==false && document.getElementById('id_scl_ews').checked==false && document.getElementById('id_scl_sebc').checked==false && document.getElementById('id_scl_sc_st').checked==false)
+                {
+                    flag2 = 0;
+                    document.getElementById('id_scl_open').required = false;
+                    document.getElementById('id_scl_ews').required = false;
+                    document.getElementById('id_scl_sebc').required = false;
+                    document.getElementById('id_scl_sc_st').required = false;
+                }
+                
+                if(flag1==1 && flag2==1)
+                {
+                    document.getElementById("for-school-submit").disabled = false;
+                }
+            });
+
+            
+            $('#for-school-submit').mouseenter(function(){
+                if(flag1==0 && flag2==0)
+                {
+                    alert("Please Select Standerd and Catagory!!");
+                    document.getElementById("for-school-submit").disabled = true;
+                }
+                else if(flag1==1 && flag2==0)
+                {
+                    alert("Please Select Catagory!!");
+                    document.getElementById("for-school-submit").disabled = true;
+                }
+                else if(flag1==0 && flag2==1)
+                {
+                    alert("Please Select Standard!!");
+                    document.getElementById("for-school-submit").disabled = true;
+                }
+                
+            });
+            
+
+        });
+    </script>
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <!-- <div class="side-bar">
+        <div class="sub-side">
+            <h2>Account</h2>
+        </div>
+        <div class="side-bar-menu">
+            <ul>
+                <li><a href="" class="active">
+                        <span class="fa fa-plus"></span>
+                        <span>Add New</span>
+                    </a></li>
+                <li><a href="{% url 'view' %}">
+                        <span class="fa fa-eye"></span>
+                        <span>View</span>
+                    </a></li>
+                <li><a href="">
+                        <span class='fa fa-edit'></span>
+                        <span>Edit</span>
+                    </a></li>
+                <li onclick="logout()"><a href="">
+                        <span class="fa fa-sign-out"></span>
+                        <span> Log out</span>
+                    </a></li>
+            </ul>
+        </div>
+    </div> -->
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btnf"></i>
+        <i class="fa fa-bars" id="cancelf"></i>
+    </label>
+    <div class="sidebar">
+        <header>Dashboard</header>
+        <ul>
+            <li><a href="#"><i class="fa fa-plus"></i>Add New</a></li>
+            <li><a href="{% url 'view' %}"><i class="fa fa-eye"></i>View</a></li>
+            <!-- <li><a href="#"><i class="fa fa-edit"></i>Edit</a></li> -->
+            <li onclick="logout()"><a href="{% url 'logout' %}"><i class="fa fa-sign-out">Log out</i></a></li>
+        </ul>
+    </div>
+    
+
+    <!-- </section> -->
+    <header class="hedec1 hed-line"><span class="hedec1-in">Dashboard</span></header>
+    <!-- <div class="hed-line"></div> -->
+    <div class="main-content">
+        <div class="an-all">
+            <div class="indivisual">
+                <div class="hed1">
+                    <span>School/College:
+                    </span>
+                        {{Choices}} 
+                </div>
+                <br><br>
+                <section class="sec1">
+                <form action="{% url 'addNew' %}" id="for-school" method="POST">
+                    {% csrf_token %}
+
+                    <div class="for-school">
+                        
+                        <div class="for-school-scholarship-name">
+                            <label for="">Scholarship Name: </label>
+                                
+                                <!-- <h4></h4> -->
+                                {{School_Scholarship_name}}
+                        </div>
+
+                        <div class="for-school-common-std-cat">
+
+                           
+
+                        <div class="for-school-standard">
+
+                            <br>
+                            <h4>Standard:</h4>
+                            <b>Select all:</b><input type="checkbox" id="selectall_s1">
+                                <div class="for-school-standard-in">
+                                <div class="for-school-standard-in1">
+                                    {{School_Standard}}
+                            </div>
+                        </div>
+                        </div>
+                        <br>
+                        <div class="for-school-catagory">
+                            <br>
+                            <div class="for-school-catagory-in">
+                            <h4 class="cat-hed">Catagory:</h4>
+                                {{School_catagory}}
+<!--                            <input type="checkbox" name="s-Open" id="scl-OPEN">-->
+<!--                            <label for="s-Open">OPEN</label>-->
+<!--                            <br>-->
+<!--                            <input type="checkbox" name="s-EWS" id="scl-EWS">-->
+<!--                            <label for="s-EWS">EWS</label>-->
+<!--                            <br>-->
+<!--                            <input type="checkbox" name="s-SEBC" id="scl-SEBC">-->
+<!--                            <label for="s-SEBC">SEBC</label>-->
+<!--                            <br>-->
+<!--                            <input type="checkbox" name="s-SC" id="scl-SC-ST">-->
+<!--                            <label for="s-SC">SC/ST</label>-->
+                            <br>
+                            </div>
+                        </div>
+                    </div> <!-- common end -->
+                            <div class="for-school-percentage">
+                                {{School_Catagory_wise_pr}}
+                                <div class="percentage-OPEN mar-top-set">
+                                    <h4>Minimum required percentage for OPEN:</h4>
+                                    {{School_Catagory_wise_pr_open}}
+<!--                                    <input type="number" min="1" max="100" step="0.01" id="taka-OPEN" placeholder="0.00">-->
+                                </div>
+                                <div class="percentage-EWS mar-top-set">
+                                    <h4>Minimum required percentage for EWS:</h4>
+                                    {{School_Catagory_wise_pr_ews}}
+<!--                                    <input type="number" min="1" max="100" step="0.01" id="taka-EWS" placeholder="0.00">-->
+                                </div>
+                                <div class="percentage-SEBC mar-top-set">
+                                    <h4>Minimum required percentage for SEBC:</h4>
+                                    {{School_Catagory_wise_pr_sebc}}
+<!--                                    <input type="number" min="1" max="100" step="0.01" id="taka-SEBC" placeholder="0.00">-->
+                                </div>
+                                <div class="percentage-SC-ST mar-top-set">
+                                    <h4>Minimum required percentage for SC/ST:</h4>
+                                    {{School_Catagory_wise_pr_scst}}
+<!--                                    <input type="number" min="1" max="100" step="0.01" id="taka-SC-ST" placeholder="0.00">-->
+                                </div>
+                            </div> <!-- div: for-school-percentage -->
+
+                        
+                    
+                        
+                        <div class="con1">
+                            <div class="for-school-anu-income">
+                                <br>
+                                <h4>Family Annual Income:</h4>
+                                {{School_Family_Annual_Income}}
+<!--                                <input type="number" min="0" id="fscani" required>-->
+                            </div> <!-- div: for-school-anu-income -->
+                            
+                        <div class="for-school-gender">
+                            <br>
+                            <h4>Gender:</h4>
+                                {{School_Gender}}
+<!--                            <input type="checkbox" name="scl-gen-male" id="scl-male">-->
+<!--                            <label for="scl-gen-male">Male</label>-->
+<!--                            <input type="checkbox" name="scl-gen-female" id="scl-female">-->
+<!--                            <label for="scl-gen-female">Female</label>-->
+<!--                            <input type="checkbox" name="scl-gen-other" id="scl-other">-->
+<!--                            <label for="scl-gen-other">Other</label>-->
+                        </div> <!-- div: for-school-gender -->
+
+                        <div class="for-school-physical">
+                            <br>
+                            <h4>Scholership is only for Physical Disable person?</h4>
+                                {{School_ask_for_pd_required}}
+<!--                            <input type="radio" name="scl-phy" id="scl-phy-yes">-->
+<!--                            <label for="scl-phy">Yes</label>-->
+<!--                            <input type="radio" name="scl-phy" id="scl-phy-no">-->
+<!--                            <label for="scl-phy">No</label>-->
+                        </div> <!-- div: for-school-physical -->
+                        </div>
+                        <br>
+                        <div class="for-school-official-link">
+                            <h4>Official Website</h4>
+                            {{School_official_link}}
+                        </div>
+                        <br>
+                        <div class="for-school-desc">
+                            <h4>Write few words about Scheme:</h4>
+                            <div class="mar-bottom-set"></div>
+                                {{School_scholarship_description}}
+<!--                            <textarea style="width: 412px; height: 125px;"></textarea>-->
+                        </div> <!-- for-school-desc -->
+
+                        <div class="for-school-note">
+                            <h4>Note:</h4>
+                            {{School_note}}
+                        </div>
+
+                        <button type="submit" class="sub1" id="for-school-submit" name="name-for-school" value="School-Submit">Submit</button>
+                    </div> <!-- for-school -->
+                </form> <!-- form for-school -->
+
+
+
+<!--                                            College section                                             -->
+
+
+                <form action="{% url 'addNew' %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class="for-college">
+                         <div class="for-college-scholarship-name">
+                                <span>Scholarship Name: </span>
+                                {{College_Scholarship_name}}
+                            </div>
+                        <div class="degree-outter">
+                            <br>
+                        <div class="degree">
+                            <h4 class="cou-hed">Course:</h4>
+                            <b>Select all:</b><input type="checkbox" id="selectall_c1">
+                            <br>
+                            {{College_degree_bcom}}
+                            <!-- <input type="checkbox" name="B-com" id="B-com">
+                            <label for="B-com">B.COM</label> -->
+                            <br>
+                            {{College_degree_bba}}
+                            <!-- <input type="checkbox" name="BBA" id="BBA">
+                            <label for="BBA">BBA</label> -->
+                            <br>
+                            {{College_degree_bca}}
+                            <!-- <input type="checkbox" name="BCA" id="BCA">
+                            <label for="BCA">BCA</label> -->
+                            <br>
+                            {{College_degree_bsc}}
+                            <!-- <input type="checkbox" name="BSC" id="BSC">
+                            <label for="BSC">BSC</label> -->
+                            <br>
+                            {{College_degree_diploma}}
+                            <!-- <input type="checkbox" name="diploma" id="diploma">
+                            <label for="diploma">Diploma</label> -->
+                            <br>
+                            {{College_degree_btech}}
+                            <!-- <input type="checkbox" name="BE-B.TECH" id="BE-B.TECH">
+                            <label for="BE-B.TECH">BE/B.TECH</label> -->
+                            <br>
+                            {{College_degree_bpharma}}
+                            <!-- <input type="checkbox" name="B-PHARMA" id="B-PHARMA">
+                            <label for="B-PHARMA">B.PHARMA</label> -->
+                            <br>
+                        </div> <!-- div: degree -->
+                        <br>
+                        <div class="year">
+                            <div class="for-gene">
+                                <h4 style="margin-right: 1vw;">Year:</h4>
+                                {{College_year_123}}
+                                <!-- <input type="checkbox" name="cl-1st">
+                                <lable for="cl-1st">1</lable>
+                                <br>
+                                <input type="checkbox" name="cl-2nd">
+                                <lable for="cl-2nd">2</lable>
+                                <br>
+                                <input type="checkbox" name="cl-3rd">
+                                <lable for="cl-3rd">3</lable> -->
+                            </div>
+                            <div class="for-eng">
+                                {{College_year_4}}
+                                <!-- <input type="checkbox" name="cl-4th">
+                                <lable for="cl-4th">4</lable> -->
+                            </div>
+                            <div class="for-madi">
+                                {{College_year_5}}
+                                <!-- <input type="checkbox" name="cl-5th">
+                                <lable for="cl-5th">5</lable> -->
+                            </div>
+                        </div> <!-- div: year -->
+                        </div><!--degree-outter-->
+                        <div class="for-college-catagory-outter">
+                        <div class="for-college-catagory">
+                            <h4 class="cat-hed">Catagory:</h4>
+                            {{College_catagory}}
+                            <!-- <input type="checkbox" name="Open" id="clg-OPEN">
+                            <label for="Open">OPEN</label>
+                            <br>
+                            <input type="checkbox" name="EWS" id="clg-EWS">
+                            <label for="EWS">EWS</label>
+                            <br>
+                            <input type="checkbox" name="SEBC" id="clg-SEBC">
+                            <label for="SEBC">SEBC</label>
+                            <br>
+                            <input type="checkbox" name="SC" id="clg-SC-ST">
+                            <label for="SC">SC/ST</label> -->
+                            <br>
+                        </div> <!-- div: for-college-catagory -->
+                        <div class="clg-pr">
+                        <div class="pr-for-fy">
+
+                            <div class="pr-for-fy-open mar-top-set">
+                                <h4>12th Standarad Percentage for OPEN Catagory:</h4>
+                                {{College_for_1st_year_12th_pr_open}}
+                            </div>
+
+                            <div class="pr-for-fy-ews mar-top-set">
+                                <h4>12th Standarad Percentage for EWS Catagory:</h4>
+                                {{College_for_1st_year_12th_pr_ews}}
+                            </div>
+
+                            <div class="pr-for-fy-sebc mar-top-set">
+                                <h4>12th Standarad Percentage for SEBC Catagory:</h4>
+                                {{College_for_1st_year_12th_pr_sebc}}
+                            </div>
+
+                            <div class="pr-for-fy-sc-st mar-top-set">
+                                <h4>12th Standarad Percentage for SC/ST Catagory:</h4>
+                                {{College_for_1st_year_12th_pr_scst}}
+                            </div>
+
+                        </div> <!-- div: pr-for-fy -->
+
+                        <div class="cpi">
+
+                            <div class="cgpa-OPEN mar-top-set">
+                                <h4 id="cgpa-OPEN">Previous year CPI/CGPA for OPEN Catagory:</h4>
+                                {{College_previous_year_cpi_open}}
+                                <!-- <input type="number" min="1" max="10" step="0.01" id="cgpa-OPEN" placeholder="0.00"> -->
+                            </div>
+
+                            <div class="cgpa-EWS mar-top-set">
+                                <h4 id="cgpa-EWS">Previous year CPI/CGPA for EWS Catagory:</h4>
+                                {{College_previous_year_cpi_ews}}
+                                <!-- <input type="number" min="1" max="10" step="0.01" id="cgpa-EWS" placeholder="0.00"> -->
+                            </div>
+
+                            <div class="cgpa-SEBC mar-top-set">
+                                <h4 id="cgpa-SEBC">Previous year CPI/CGPA for SEBC Catagory:</h4>
+                                {{College_previous_year_cpi_sebc}}
+                                <!-- <input type="number" min="1" max="10" step="0.01" id="cgpa-SEBC" placeholder="0.00"> -->
+                            </div>
+
+                            <div class="cgpa-SC-ST mar-top-set">
+                                <h4 id="cgpa-SC-ST">Previous year CPI/CGPA for SC/ST Catagory:</h4>
+                                {{College_previous_year_cpi_scst}}
+                                <!-- <input type="number" min="1" max="10" step="0.01" id="cgpa-SC-ST" placeholder="0.00"> -->
+                            </div>
+                            <br>
+                        </div> <!-- div: cpi -->
+                    </div>
+                    </div><!--for-college-catagory-outter-->
+
+                        <div class="con3">
+                        <div class="for-college-anu-income">
+                            <h4>Family Anual Income:</h4>
+<!--                            <input type="number" min="0" id="fcani" required> -->
+                                {{Family_Annual_Income}}
+                        </div> <!-- div: for-college-anu-income -->
+                        <div class="for-college-gender">
+                            <br>
+                            <h4>Gender:</h4>
+                            {{College_Gender}}
+                            <!-- <input type="checkbox" name="clg-gen-male" id="clg-male">
+                            <label for="clg-gen-male">Male</label>
+                            <input type="checkbox" name="clg-gen-female" id="clg-female">
+                            <label for="clg-gen-female">Female</label>
+                            <input type="checkbox" name="clg-gen-other" id="clg-other">
+                            <label for="clg-gen-other">Other</label> -->
+                        </div> <!-- div: for-college-gender -->
+
+                        <div class="for-college-physical">
+                            <br>
+                            <h4>Scholership is only for Physical Disable person?</h4>
+                            {{College_ask_for_pd}}
+                            <!-- <input type="radio" name="clg-phy" id="clg-phy-yes">
+                            <label for="clg-phy">Yes</label>
+                            <input type="radio" name="clg-phy" id="clg-phy-no">
+                            <label for="clg-phy">No</label> -->
+                        </div> <!-- div: for-college-physical -->
+                        </div> <!-- div: con3 -->
+
+                        <div class="for-college-official-link">
+                            <h4>Official Website</h4>
+                            {{College_official_link}}
+                        </div>
+
+                        <div class="for-college-desc">
+                            <h4>Write few words about Scheme:</h4>
+                            <div class="mar-bottom-set"></div>
+                            {{College_scholarship_description}}
+                            <!-- <textarea style="width: 412px; height: 125px;"></textarea> -->
+                        </div> <!-- for-college-desc -->
+
+                        <div class="for-college-note">
+                            <h4>Note:</h4>
+                            {{College_note}}
+                        </div> <!-- for-college-note over -->
+
+                        <button type="submit" class="sub1" id="clg-submit" value="College-Submit"   >Submit</button>
+
+                    </div> <!-- div: for-college -->
+                </form> <!-- form for-college -->
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    // Select all javascript
+
+    //javascript for Standard 
+    
+    
+    // $(document).ready(function(){
+        
+    // });
+</script>
+</html>
